@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #dfa346;
+  --blue: #1c4985;
+  --black: #222222;
+  --headers: "Baloo Da 2";
+  --paragraphs: "Fira Sans";
+}
+
+body {
+  background-color: var(--black);
+}
+
+h1,
+h2 {
+  font-family: var(--headers);
+}
+
+p,
+a,
+li {
+  font-family: var(--paragraphs);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1500px;
+  font-family: var(--paragraphs);
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-family: var(--headers);
+  color: var(--gold);
+  font-size: 2em;
+  font-weight: 500;
+}
+
+h1 strong {
+  font-weight: 600;
+}
+
+header img {
+  max-width: 120px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* Main */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+
+  grid-template-areas:
+    "c1 c1  c2  c2  c2  c3"
+    "c1 c1  c2  c2  c2  c4"
+    "c5 c6  c7  c7  c8  c8"
+    "c5 c6  c7  c7  c8  c8"
+    "c9 c9 c10 c11 c12 c13"
+    "c9 c9 c10 c11 c14 c14";
+}
+
+.c1 {
+  grid-area: c1;
+}
+
+.c2 {
+  grid-area: c2;
+}
+
+.c3 {
+  grid-area: c3;
+}
+
+.c4 {
+  grid-area: c4;
+}
+
+.c5 {
+  grid-area: c5;
+}
+
+.c6 {
+  grid-area: c6;
+}
+
+.c7 {
+  grid-area: c7;
+}
+
+.c8 {
+  grid-area: c8;
+}
+
+.c9 {
+  grid-area: c9;
+}
+
+.c10 {
+  grid-area: c10;
+}
+
+.c11 {
+  grid-area: c11;
+}
+
+.c12 {
+  grid-area: c12;
+}
+
+.c13 {
+  grid-area: c13;
+}
+
+.c14 {
+  grid-area: c14;
+}
+
+/* Info card */
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: var(--gold);
+}
+
+h2 {
+  line-height: 35px;
+  font-size: 2em;
+}
+
+p {
+  text-align: justify;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.1em;
+  transition: all 1s ease;
+}
+
+.info a {
+  background-color: var(--blue);
+  border: 2px solid var(--black);
+}
+
+.info a:visited {
+  color: var(--gold);
+}
+
+.info a:link {
+  color: var(--gold);
+}
+
+.info a:hover {
+  background-color: var(--black);
+}
+
+.info ul {
+  margin: 20px;
+  list-style-type: square;
+}
+
+.info li {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Images grid */
+
+main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0%);
+  transition: all 1s ease;
+}
+
+main div:hover img {
+  filter: saturate(100%);
+}
+
+main div {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.image a {
+  position: absolute;
+  top: 0%;
+  transform: translateY(0%);
+  width: 80%;
+  left: 10%;
+
+  z-index: 999;
+
+  opacity: 0%;
+  background-color: var(--gold);
+  text-align: center;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  transition: all 1s ease;
+}
+
+.image:hover a {
+  opacity: 80%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.image a:hover {
+  background-color: var(--blue);
+  color: var(--gold);
+}
+
+/* Footer */
+
+footer {
+  padding: 2px;
+  text-align: center;
+  font-size: 1.8em;
+  font-family: var(--headers);
+  color: var(--gold);
+}
+
+/* Mediaqueries */
+
+@media screen and (min-width: 501px) and (max-width: 900px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.8fr 0.5fr repeat(4, 1fr) 0.5fr 1fr;
+
+    grid-template-areas:
+      "c1 c2"
+      "c3 c4"
+      "c5 c8"
+      "c6 c10"
+      "c9 c11"
+      "c7 c7"
+      "c12 c13"
+      "c14 c14";
+  }
+
+  p {
+    text-align: justify;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+
+    grid-template-areas:
+      "c2 c2" /* GRANADA */
+      "c3 c3" /* SEGOVIA */
+      "c1 c1" /* CARD */
+      "c4 c4" /* VIZCAYA */
+      "c5 c6" /* BARCELONA, ESCORIAL */
+      "c8 c8" /* CARD */
+      "c7 c7" /* TOLEDO */
+      "c10 c11" /* CÓRDOBA, A CORUÑA*/
+      "c9 c9" /* CARD */
+      "c12 c13" /* SALAMANCA, LA LAGUNA */
+      "c14 c14";
+  }
+
+  p {
+    text-align: justify;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  main img {
+    filter: saturate(100%);
+    transition: none;
+  }
+
+  .image a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    opacity: 80%;
+    transition: none;
+  }
+
+  .image a:hover {
+    background-color: var(--gold);
+    color: var(--blue);
+  }
+
+  .info a:hover {
+    background-color: var(--blue);
+  }
+}
